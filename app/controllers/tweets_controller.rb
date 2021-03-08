@@ -27,13 +27,22 @@ class TweetsController < ApplicationController
       end
     end
 
-  get "/tweets/new" do
-      if logged_in?
-        erb :"tweets/new"
-      else
-          redirect "/login"
-      end
+  # get "/tweets/new" do
+  #     if logged_in?
+  #       erb :"tweets/new"
+  #     else
+  #         redirect "/login"
+  #     end
+  # end
+
+  get '/tweets/new' do
+  if session[:user_id]
+    @user = User.find(session[:user_id])
+    erb :'tweets/new'
+  else
+    redirect '/login'
   end
+end
 
 
   get '/tweets/:id' do
