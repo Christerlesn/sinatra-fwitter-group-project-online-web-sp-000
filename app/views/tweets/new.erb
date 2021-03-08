@@ -1,6 +1,12 @@
-<form action='/tweets' method="post">
+<!-- <form action='/tweets' method="post">
     Create your Tweet:
     <input type="text" name="content"><br>
 
     <input class="btn btn-primary" type="submit" value="submit">
-  </form>
+  </form> -->
+  Content:
+  <input type="text" name="content"><br>
+  Create Your Tweet:
+  <input type="hidden" name="user_id" value=<%= Helpers.current_user(session).id %>>
+
+  <input type="submit" value="Submit" id="submit">
