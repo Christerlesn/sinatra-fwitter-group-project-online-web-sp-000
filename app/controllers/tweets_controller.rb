@@ -28,7 +28,7 @@ class TweetsController < ApplicationController
     end
 
   get "/tweets/new" do
-      if current_user 
+      if current_user
         @tweet= Tweet.new(params)
         if @tweet.user_id == current_user.id
           erb :"tweets/new"
