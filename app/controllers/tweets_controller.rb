@@ -28,8 +28,8 @@ class TweetsController < ApplicationController
     end
 
   get "/tweets/new" do
-      #@tweet= Tweet.new(params)
-      if current_user # && @tweet.
+      @tweet= Tweet.new(params)
+      if current_user && @tweet.user_id == user.id
           erb :"tweets/new"
       else
           redirect "/login"
